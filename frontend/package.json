@@ -1,0 +1,10 @@
+{
+  "name": "ferrari-site",
+  "version": "1.0.0",
+  "description": "Ferrari — Built to be Remembered. Scroll-driven cinematic landing page.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node build_site.js"
+  }
+}
