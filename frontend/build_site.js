@@ -26,6 +26,7 @@ const htmlContent = `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="chat.css?v=1">
 </head>
 <body class="bg-black text-white selection:bg-white selection:text-black">
   <h1 class="sr-only">Ferrari — Built to be Remembered</h1>
@@ -265,6 +266,7 @@ const htmlContent = `<!DOCTYPE html>
   </main>
 
   <script src="script.js?v=8"></script>
+  <script src="chat.js?v=1"></script>
 </body>
 </html>
 `;
