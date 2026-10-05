@@ -264,7 +264,12 @@ const htmlContent = `<!DOCTYPE html>
       </div>
     </section>
   </main>
-
+  
+<script>
+  window.FERRARI_API_BASE = 'https://ferrari-backend-wagn.onrender.com';
+</script>
+<script src="script.js?v=8"></script>
+<script src="chat.js?v=1"></script>
   <script src="script.js?v=8"></script>
   <script src="chat.js?v=1"></script>
 </body>
