@@ -38,20 +38,29 @@
   }
 
   function drawImageCover(img) {
-    if (!img || !img.complete || img.naturalWidth === 0) return;
+  if (!img || !img.complete || img.naturalWidth === 0) return;
 
-    const cw = canvas.width;
-    const ch = canvas.height;
-    const iw = img.naturalWidth;
-    const ih = img.naturalHeight;
+  const cw = canvas.width;
+  const ch = canvas.height;
+  const iw = img.naturalWidth;
+  const ih = img.naturalHeight;
 
-    const scale = Math.max(cw / iw, ch / ih);
-    const nw = iw * scale;
-    const nh = ih * scale;
-    const cx = (cw - nw) / 2;
-    const cy = (ch - nh) / 2;
+  const isMobile = window.innerWidth <= 768;
 
-    ctx.drawImage(img, cx, cy, nw, nh);
+  // Desktop: mantém exatamente o comportamento original.
+  // Mobile: prioriza a largura para evitar que a composição
+  // seja ampliada excessivamente pela altura da tela.
+  const scale = isMobile
+    ? cw / iw
+    : Math.max(cw / iw, ch / ih);
+
+  const nw = iw * scale;
+  const nh = ih * scale;
+
+  const cx = (cw - nw) / 2;
+  const cy = (ch - nh) / 2;
+
+  ctx.drawImage(img, cx, cy, nw, nh);
   }
 
   function getBestAvailableFrame(index) {
