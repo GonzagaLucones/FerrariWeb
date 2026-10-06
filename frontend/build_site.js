@@ -31,8 +31,10 @@ const htmlContent = `<!DOCTYPE html>
 <body class="bg-black text-white selection:bg-white selection:text-black">
   <h1 class="sr-only">Ferrari — Built to be Remembered</h1>
 
-  <!-- 1. Background Animation Video Fixed Layer -->
+  <!-- 1. Background Animation Canvas/Video Fixed Layer -->
 <div id="canvas-container" class="canvas-container">
+  <canvas id="animation-canvas"></canvas>
+
   <video
     id="animation-video"
     class="animation-video"
