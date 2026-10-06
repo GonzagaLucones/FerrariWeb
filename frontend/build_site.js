@@ -31,11 +31,18 @@ const htmlContent = `<!DOCTYPE html>
 <body class="bg-black text-white selection:bg-white selection:text-black">
   <h1 class="sr-only">Ferrari — Built to be Remembered</h1>
 
-  <!-- 1. Background Animation Canvas Fixed Layer -->
-  <div id="canvas-container" class="canvas-container">
-    <canvas id="animation-canvas"></canvas>
-    <div class="ambient-gradient-overlay"></div>
-  </div>
+  <!-- 1. Background Animation Video Fixed Layer -->
+<div id="canvas-container" class="canvas-container">
+  <video
+    id="animation-video"
+    class="animation-video"
+    muted
+    playsinline
+    preload="auto"
+  ></video>
+
+  <div class="ambient-gradient-overlay"></div>
+</div>
 
   <!-- 2. Architectural Guidelines & Crosshair Overlay -->
   <div class="guide-lines-overlay" aria-hidden="true">
@@ -268,9 +275,9 @@ const htmlContent = `<!DOCTYPE html>
 <script>
   window.FERRARI_API_BASE = 'https://ferrari-backend-wagn.onrender.com';
 </script>
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 <script src="chat.js?v=1"></script>
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
   <script src="chat.js?v=1"></script>
 </body>
 </html>
