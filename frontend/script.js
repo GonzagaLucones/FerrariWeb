@@ -17,7 +17,7 @@
   let targetTime = 0;
   let currentTime = 0;
 
-  const LERP_FACTOR = 0.12;
+  const LERP_FACTOR = 0.35;
 
   function setVideoSource() {
     const source = getVideoSource();
