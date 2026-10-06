@@ -189,7 +189,10 @@
 
     video.src = source;
     video.load();
-
+    
+    video.muted = true;
+    video.playsInline = true;
+    
     video.addEventListener(
       'loadedmetadata',
       () => {
@@ -198,6 +201,10 @@
         targetTime = 0;
 
         updateScrollTarget();
+
+        video.currentTime = 0;
+        video.play().catch(() => {});
+        video.pause();
       },
       { once: true }
     );
