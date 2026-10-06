@@ -127,13 +127,7 @@
   function animationLoop() {
     updateScrollTarget();
 
-    const diff = targetTime - currentTime;
-
-    if (Math.abs(diff) > 0.003) {
-      currentTime += diff * LERP_FACTOR;
-    } else {
-      currentTime = targetTime;
-    }
+    currentTime = targetTime;
 
     if (
       video.readyState >= 2 &&
