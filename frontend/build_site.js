@@ -277,10 +277,8 @@ const htmlContent = `<!DOCTYPE html>
 <script>
   window.FERRARI_API_BASE = 'https://ferrari-backend-wagn.onrender.com';
 </script>
-<script src="script.js?v=9"></script>
+<script src="script.js?v=10"></script>
 <script src="chat.js?v=1"></script>
-  <script src="script.js?v=9"></script>
-  <script src="chat.js?v=1"></script>
 </body>
 </html>
 `;
