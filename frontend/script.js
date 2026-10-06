@@ -176,8 +176,6 @@
   let targetTime = 0;
   let currentTime = 0;
 
-  const LERP_FACTOR = 0.12;
-
   function setVideoSource() {
     if (!video) return;
 
@@ -383,23 +381,13 @@
         video.readyState >= 2 &&
         Number.isFinite(currentTime)
       ) {
-        const diff =
-          targetTime - currentTime;
-
-        if (Math.abs(diff) > 0.003) {
-          currentTime +=
-            diff * LERP_FACTOR;
-        } else {
-          currentTime =
-            targetTime;
-        }
-
-        try {
-          video.currentTime =
-            currentTime;
-        } catch (error) {
-          // Ignora seeks temporariamente indisponíveis
-        }
+        if (Math.abs(video.currentTime - targetTime) > 0.01) {
+  try {
+    video.currentTime = targetTime;
+  } catch (error) {
+    // Ignora seeks temporariamente indisponíveis
+  }
+}
       }
     } else {
       // Desktop usa os JPGs
