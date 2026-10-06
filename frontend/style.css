@@ -87,24 +87,6 @@ canvas#animation-canvas {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
-video#animation-video {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-@media (max-width: 768px) {
-  video#animation-video {
-    object-fit: cover;
-    object-position: center center;
-  }
-}
 
 .ambient-gradient-overlay {
   position: absolute;
