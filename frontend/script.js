@@ -9,7 +9,7 @@
     : null;
 
   const MOBILE_BREAKPOINT = 768;
-  const TOTAL_FRAMES = 300;
+  const TOTAL_FRAMES = 297;
 
   const isMobile = () => window.innerWidth <= MOBILE_BREAKPOINT;
 
