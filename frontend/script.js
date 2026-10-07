@@ -145,8 +145,6 @@ function framePath(index) {
   }
 
   function drawTargetFrame() {
-    if (isMobile()) return;
-
     if (targetFrame === currentFrame) return;
 
     // Se o frame exato ainda não carregou,
@@ -174,45 +172,12 @@ function framePath(index) {
   }
 
   // ==============================
-  // MOBILE VIDEO SYSTEM
-  // ==============================
+// MOBILE FRAME SYSTEM
+// ==============================
 
-  let currentSource = '';
-  let targetTime = 0;
-  let currentTime = 0;
-
-  function setVideoSource() {
-    if (!video) return;
-
-    const source = 'videos/1005.mp4';
-
-    if (source === currentSource) return;
-
-    currentSource = source;
-
-    video.src = source;
-    video.load();
-    
-    video.muted = true;
-    video.playsInline = true;
-    
-    video.addEventListener(
-      'loadedmetadata',
-      () => {
-        video.currentTime = 0;
-        currentTime = 0;
-        targetTime = 0;
-
-        updateScrollTarget();
-
-        video.currentTime = 0;
-        video.play().catch(() => {});
-        video.pause();
-      },
-      { once: true }
-    );
-  }
-
+function preloadMobileFrames() {
+  preloadFrames();
+}
   // ==============================
   // VISIBILITY / MODE
   // ==============================
@@ -221,24 +186,15 @@ function framePath(index) {
     const mobile = isMobile();
 
     if (canvas) {
-      canvas.style.display = mobile
-        ? 'none'
-        : 'block';
-    }
+  canvas.style.display = 'block';
+}
 
-    if (video) {
-      video.style.display = mobile
-        ? 'block'
-        : 'none';
-    }
+if (video) {
+  video.style.display = 'none';
+}
 
-    if (mobile) {
-      setVideoSource();
-    } else {
-      preloadFrames();
-      resizeCanvas();
-    }
-  }
+preloadFrames();
+resizeCanvas();
 
   // ==============================
   // SCROLL
@@ -282,18 +238,7 @@ function framePath(index) {
     // ANIMAÇÃO PRINCIPAL
     // ==========================
 
-    if (isMobile()) {
-      if (
-        video &&
-        video.duration &&
-        Number.isFinite(video.duration)
-      ) {
-        targetTime =
-          progress * video.duration;
-      }
-    } else {
-      updateTargetFrame(progress);
-    }
+    updateTargetFrame(progress);
 
     // ==========================
     // HEADER
@@ -379,30 +324,12 @@ function framePath(index) {
   // ==============================
 
   function animationLoop() {
-    if (isMobile()) {
-      // Mobile continua usando o vídeo
-      if (
-        video &&
-        video.readyState >= 2 &&
-        Number.isFinite(currentTime)
-      ) {
-        if (Math.abs(video.currentTime - targetTime) > 0.01) {
-  try {
-    video.currentTime = targetTime;
-  } catch (error) {
-    // Ignora seeks temporariamente indisponíveis
-  }
-}
-      }
-    } else {
-      // Desktop usa os JPGs
-      drawTargetFrame();
-    }
+  drawTargetFrame();
 
-    requestAnimationFrame(
-      animationLoop
-    );
-  }
+  requestAnimationFrame(
+    animationLoop
+  );
+}
 
   // ==============================
   // SCROLL REVEALS
