@@ -194,8 +194,8 @@ if (video) {
 }
 
 preloadFrames();
-resizeCanvas();
-
+  resizeCanvas();
+}
   // ==============================
   // SCROLL
   // ==============================
