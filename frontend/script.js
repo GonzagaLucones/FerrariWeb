@@ -18,15 +18,20 @@
   // ==============================
 
   const frames = new Array(TOTAL_FRAMES);
-  let framesLoaded = 0;
-  let framesStarted = false;
+let framesLoaded = 0;
+let framesStarted = false;
 
-  let targetFrame = 0;
-  let currentFrame = -1;
+let targetFrame = 0;
+let currentFrame = -1;
 
-  function framePath(index) {
-    const number = String(index + 1).padStart(3, '0');
-    return `frames/frame_${number}.jpg`;
+function framePath(index) {
+  const number = String(index + 1).padStart(3, '0');
+
+  if (isMobile()) {
+    return `frames-mobile/ezgif-frame-${number}.jpg`;
+  }
+
+  return `frames/frame_${number}.jpg`;
   }
 
   function preloadFrames() {
